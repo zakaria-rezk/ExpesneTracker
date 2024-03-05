@@ -28,19 +28,20 @@ import { reactive, ref } from "vue";
  const store = useCounterStore();
  //reactive 
  const money =ref(null)
- const title =ref('')
+ const title =ref(null)
 //
 
  const submit =(text,amount) =>{
   console.log(!isNaN(amount))
-  if ( !isNaN(amount)){
+  if ( !isNaN(amount) && text !=null && amount !=null){
    
     store.addtransction(text,amount)
     store.changeTotalBalance(+amount)
     store.changeIncomeExpens(+amount)
-    money.value=''
+    money.value=null
     title.value=null
   }
+ 
  }
 
 </script>
